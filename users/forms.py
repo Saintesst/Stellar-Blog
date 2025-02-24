@@ -13,3 +13,6 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['avatar', 'bio']
+
+class UserSearchForm(forms.Form):
+    query = forms.CharField(label="Поиск пользователя", max_length=100)

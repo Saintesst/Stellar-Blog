@@ -16,11 +16,20 @@
         <ul class="login-form">
             <li>
                 <span class="icon solid major style1 fa-code"></span>
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
+                <form method="get">
                     {{ form.as_p }}
-                    <button type="submit">Сохранить</button>
-                </form>
+                    <button type="submit">Найти</button>
+                </form>               
+                {% if users %}
+                    <h2>Результаты поиска:</h2>
+                    <ul>
+                        {% for user in users %}
+                            <li><a href="{% url 'profile' user.username %}">{{ user.username }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>Пользователи не найдены.</p>
+                {% endif %}
             </li>
         </ul>
         

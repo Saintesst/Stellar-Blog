@@ -3,6 +3,8 @@ from django.contrib.auth import login, authenticate, logout
 from .forms import UserRegisterForm, ProfileUpdateForm
 from .models import Profile
 from django.contrib.auth.decorators import login_required
+from .forms import UserSearchForm
+from django.contrib.auth.models import User
 
 def register(request):
     if request.method == "POST":
@@ -48,3 +50,15 @@ def user_logout(request):
     logout(request)
     return redirect("login")
 
+def user_search(request):
+    users = []
+    form = UserSearchForm()
+    
+    if request.method == "GET" and "query" in request.GET:
+        form = UserSearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data["query"]
+            users = User.objects.filter(username__icontains=query)
+    
+    return render(request, "users/user_search.html", {"form": form, "users": users})
+    
