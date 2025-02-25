@@ -1,10 +1,12 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate, logout
-from .forms import UserRegisterForm, ProfileUpdateForm
+from .forms import UserRegisterForm, ProfileUpdateForm, UserLoginForm
 from .models import Profile
 from django.contrib.auth.decorators import login_required
 from .forms import UserSearchForm
 from django.contrib.auth.models import User
+from django.contrib.auth.views import LoginView
+from django.urls import reverse_lazy
 
 def register(request):
     if request.method == "POST":
@@ -62,3 +64,10 @@ def user_search(request):
     
     return render(request, "users/user_search.html", {"form": form, "users": users})
     
+def user_profile(request, username):
+    user = get_object_or_404(User, username=username) 
+    return render(request, "users/user_profile.html" , {"profile_user": user})
+
+class CustomLoginView(LoginView):
+    form_class = UserLoginForm
+    template_name = 'users/login.html'

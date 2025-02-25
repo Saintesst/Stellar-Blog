@@ -3706,6 +3706,7 @@ input, select, textarea {
 			font-size: 0.8em;
 			text-align: center;
 		}
+		
 
 		@media screen and (max-width: 1280px) {
 
@@ -3783,3 +3784,4 @@ input, select, textarea {
 			}
 
 		}
+
