@@ -23,7 +23,7 @@ class ProfileUpdateForm(forms.ModelForm):
         fields = ['avatar', 'bio']
 
 class UserSearchForm(forms.Form):
-    query = forms.CharField(label="Поиск пользователя", max_length=100)
+    query = forms.CharField(label="Search", max_length=100)
     
     
 class UserLoginForm(AuthenticationForm):

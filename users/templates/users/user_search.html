@@ -11,29 +11,44 @@
 <body>
     <section id="first" class="main special">
         <header class="major">
-            <h2>Profile Edit</h2>
+            <h2>Profile Search</h2>
         </header>
-        <ul class="login-form">
-            <li>
-                <span class="icon solid major style1 fa-code"></span>
+        <ul class="login-form">              
                 <form method="get">
                     {{ form.as_p }}
-                    <button type="submit">Найти</button>
+                    <button type="submit">🕵️‍♂️🔎</button>
                 </form>               
                 {% if users %}
-                    <h2>Результаты поиска:</h2>
+                    <h2>Results:</h2>
                     <ul>
                         {% for user in users %}
-                            <li><a href="{% url 'profile' user.username %}">{{ user.username }}</a></li>
+                            <a href="{% url 'profile' user.username %}">{{ user.username }}</a>
                         {% endfor %}
                     </ul>
                 {% else %}
-                    <p>Пользователи не найдены.</p>
+                    <p>Profile does not exist</p>
                 {% endif %}
-            </li>
-        </ul>
-        
+        </ul>        
     </section>
+     <!-- Footer -->
+    <footer id="footer">
+        <section>
+            <h2>Info</h2>
+            <p>For more details, documentation, and updates, visit GitHub. Feel free to explore, modify, and contribute! 🚀💻</p>
+            <ul class="actions">
+                <li><a href="https://github.com/Saintesst/Stellar-Blog" class="button">Learn More</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Search</h2>
+            <p>Would you like to find a specific user's profile?👋 You can search by username and connect with others easily! 🔍</p>
+            <ul class="actions">
+                <li><a href="" class="button">Profile search</a></li>
+            </ul>
+        </section>
+        
+    </footer>
     <!-- Scripts -->
 			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
 			<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
