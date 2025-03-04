@@ -6,25 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
 	<noscript><link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" /></noscript>
-    <title>Login</title>
+    <title>Registration</title>
 </head>
 <body>
+    <div class="card-body p-lg-4">
     <section id="first" class="main special">
         <header class="major">
-            <h2>Profile Edit</h2>
-        </header>
-        <ul class="login-form">
-            <li>
-                <span class="icon solid major style1 fa-code"></span>
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit">Сохранить</button>
-                </form>
-            </li>
-        </ul>
-        
+            <h2>Stellar-Blog Profile Edit</h2>
+        </header>        
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Сохранить</button>
+            </form>
+            <img src="{{ profile.avatar.url }}" width="100">
     </section>
+
+    <section id="cta" class="main special">
+								<header class="major">
+									<p>🔹 Already a member? Log in and jump right in!</p>
+								</header>
+								<footer class="major">
+									<ul class="actions special">
+										<li><a href="/login" class="button primary">Log-in</a></li>
+									</ul>
+								</footer>
+							</section>    
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+        <section>
+            <h2>Info</h2>
+            <p>For more details, documentation, and updates, visit GitHub. Feel free to explore, modify, and contribute! 🚀💻</p>
+            <ul class="actions">
+                <li><a href="https://github.com/Saintesst/Stellar-Blog" class="button">Learn More</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Search</h2>
+            <p>Would you like to find a specific user's profile?👋 You can search by username and connect with others easily! 🔍</p>
+            <ul class="actions">
+                <li><a href="/user_search" class="button">Profile search</a></li>
+            </ul>
+        </section>
+        
+    </footer>
     <!-- Scripts -->
 			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
 			<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
