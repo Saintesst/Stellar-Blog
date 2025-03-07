@@ -5,8 +5,7 @@ from .models import Profile
 from django.contrib.auth.decorators import login_required
 from .forms import UserSearchForm
 from django.contrib.auth.models import User
-from django.contrib.auth.views import LoginView
-from django.urls import reverse_lazy
+from django.contrib.auth.views import LoginView     
 
 def register(request):
     if request.method == "POST":
@@ -64,10 +63,14 @@ def user_search(request):
     
     return render(request, "users/user_search.html", {"form": form, "users": users})
     
-def user_profile(request, username):
-    user = get_object_or_404(User, username=username) 
-    return render(request, "users/user_profile.html" , {"profile_user": user})
+def profile_view(request, username):
+    profile_user = get_object_or_404(User, username=username)  # Находим пользователя
+    profile = get_object_or_404(Profile, user=profile_user)  # Находим профиль пользователя
+    return render(request, 'users/user_profile.html', {
+        'profile_user': profile_user,
+        'profile': profile,  # Передаем профиль в шаблон
+    })
 
-class CustomLoginView(LoginView):
+class CustomLoginView(LoginView):       
     form_class = UserLoginForm
     template_name = 'users/login.html'

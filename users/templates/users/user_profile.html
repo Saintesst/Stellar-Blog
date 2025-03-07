@@ -8,20 +8,68 @@
 	<noscript><link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" /></noscript>
     <title>profile</title>
 </head>
+
+
+
+
+
+
 <body>
     <section id="first" class="main special">
-        <h2>Профиль пользователя {{ profile_user.username }}</h2>
-
+        <header class="major">
+            <h2>Stellar-Blog Profile Search</h2>
+        </header>        
+        <ul class="reg-form">
+            <li>
+                <h1>Профиль: {{ profile.user.username }}</h1>
+                {% if profile.avatar %}
+                    <img src="{{ profile.avatar.url }}" width="100" alt="Аватар">
+                {% else %}
+                    <p>Аватар не загружен.</p>
+                {% endif %}
+                <p>{{ profile.bio }}</p>
+            </li>
+        </ul>
+    </section>
+    <section id="first" class="main special">
+        
+    
         <p>Email: {{ profile_user.email }}</p>
-
+    
         {% if profile_user == request.user %}
             <p>Это ваш профиль!</p>
         {% else %}
             <p>Вы просматриваете профиль другого пользователя.</p>
         {% endif %}
-
+    
         <a href="{% url 'user_search' %}">🔍 Найти другого пользователя</a>
     </section>
+
+    <footer id="footer">
+        <section>
+            <h2>Info</h2>
+            <p>For more details, documentation, and updates,    visit GitHub. Feel free to explore, modify, and contribute! 🚀💻</p>
+            <ul class="actions">
+                <li><a href="https://github.com/Saintesst/Stellar-Blog" class="button">Learn More</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Search</h2>
+            <p>🏠 Go to Home</p>
+            <ul class="actions">
+                <li><a href="{% url "home" %}" class="button">Home page</a></li>
+            </ul>
+        </section>
+        
+    </footer>
+
+
+
+
+
+
+
     <!-- Scripts -->
 			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
 			<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>

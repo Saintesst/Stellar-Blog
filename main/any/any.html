@@ -1,0 +1,13 @@
+<section id="first" class="main special">
+    <h2>Профиль пользователя {{ profile_user.username }}</h2>
+
+    <p>Email: {{ profile_user.email }}</p>
+
+    {% if profile_user == request.user %}
+        <p>Это ваш профиль!</p>
+    {% else %}
+        <p>Вы просматриваете профиль другого пользователя.</p>
+    {% endif %}
+
+    <a href="{% url 'user_search' %}">🔍 Найти другого пользователя</a>
+</section>

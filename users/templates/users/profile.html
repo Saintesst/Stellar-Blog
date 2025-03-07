@@ -15,7 +15,7 @@
         </header>
         <ul class="reg-form">
             <li>
-                <span class="icon solid major style1 fa-code"></span>
+                
                 <h1>Профиль: {{ profile.user.username }}</h1>
                 <img src="{{ profile.avatar.url }}" width="100">
                 <p>{{ profile.bio }}</p>
@@ -25,6 +25,24 @@
         </ul>
         
     </section>
+    <footer id="footer">
+        <section>
+            <h2>Info</h2>
+            <p>For more details, documentation, and updates, visit GitHub. Feel free to explore, modify, and contribute! 🚀💻</p>
+            <ul class="actions">
+                <li><a href="https://github.com/Saintesst/Stellar-Blog" class="button">Learn More</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Main Page</h2>
+            <p>🏠 Go to Home</p>
+            <ul class="actions">
+                <li><a href="{% url "home" %}" class="button">Home page</a></li>
+            </ul>
+        </section>
+        
+    </footer>
     <!-- Scripts -->
 			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
 			<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
