@@ -14,23 +14,24 @@
             <h2>{{ profile.user.username }}</h2>
         </header>
         <ul class="reg-form">
-            <li>
+            
                 
                 <h1>Профиль: {{ profile.user.username }}</h1>
                 <img src="{{ profile.avatar.url }}" width="100">
                 <p>{{ profile.bio }}</p>
                 <a href="{% url 'edit_profile' %}">Редактировать профиль</a>
                 <a href="{% url 'logout' %}">Выйти</a>
-            </li>
+            
         </ul>
         
     </section>
     <footer id="footer">
         <section>
-            <h2>Info</h2>
-            <p>For more details, documentation, and updates, visit GitHub. Feel free to explore, modify, and contribute! 🚀💻</p>
+            <h2>Posts</h2>
+            <p>The "Create Post" button lets you share your thoughts with the world! 🌍✨ Click it to open a form where you can add a title and content for your post. 
+                Once published, your post will be live for others to see and engage with. Get creative and start sharing! 🚀🎨</p>
             <ul class="actions">
-                <li><a href="https://github.com/Saintesst/Stellar-Blog" class="button">Learn More</a></li>
+                <li><a href="http://127.0.0.1:8000/post/new/" class="button">Create Post</a></li>
             </ul>
         </section>
 
