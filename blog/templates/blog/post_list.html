@@ -10,15 +10,7 @@
 </head>
 <body>
     <section id="first" class="main special">
-      {% block content %}
-      <h2>Создать пост</h2>
-      <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Опубликовать</button>
-      </form>
-        {% endblock %}
-        
+      
     </section>
     <footer id="footer">
         <section>
