@@ -8,3 +8,16 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+    
+    
+def default_avatar():
+    return "avatars/default.jpg"
+
+
+class CustomUser(models.Model):
+    avatar = models.ImageField(
+        upload_to="avatars/", 
+        null=True, 
+        blank=True, 
+        default=default_avatar  # Указываем функцию без скобок
+    )
