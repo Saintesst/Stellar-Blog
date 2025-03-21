@@ -22,11 +22,9 @@
         <ul class="reg-form">
             <li>
                 <h1>Профиль: {{ profile.user.username }}</h1>
-                {% if profile.avatar %}
-                    <img src="{{ profile.avatar.url }}" width="100" alt="Аватар">
-                {% else %}
-                    <p>Аватар не загружен.</p>
-                {% endif %}
+
+                <img src="/media/avatars/default.jpg" alt="Аватар по умолчанию">
+
                 <p>{{ profile.bio }}</p>
             </li>
         </ul>
